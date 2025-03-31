@@ -1,70 +1,51 @@
 <template>
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered >
-      <q-list>
-        <q-item-label header>
-          Sistema Informativo
-        </q-item-label>
-  
-        <!-- Menú con submenús generado dinámicamente -->
-        <q-expansion-item
-          v-for="(menu, index) in menuData"
-          :key="index"
-          :label="menu.label"
-          :icon="menu.icon"
-        >
-          <q-list>
-            <q-item
-              v-for="(item, itemIndex) in menu.items"
-              :key="itemIndex"
-              clickable
-              tag="a"
-            
-              :href="item.url"
-            >
-              <q-item-section>
-                <!-- Asegúrate de usar un ícono válido de Quasar -->
-                <q-item-icon :name="item.icon || 'link'"></q-item-icon>
-                <q-item-label>{{ item.label }}</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-expansion-item>
-      </q-list>
-    </q-drawer>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue'
-  
-  // Simulamos la respuesta de una API
-  const menuData = [
-    {
-      label: 'Docs',
-      icon: 'school',
-      items: [
-        { label: 'Documentation', url: 'https://quasar.dev/docs', icon: 'book' },
-        { label: 'Tutorial', url: 'https://quasar.dev/tutorial', icon: 'video_library' }
-      ]
-    },
-    {
-      label: 'Community',
-      icon: 'people',
-      items: [
-        { label: 'Clientes', url: '/clientes', icon: 'group' } ,
-        { label: 'Discord', url: 'https://chat.quasar.dev', icon: 'chat' },
-        { label: 'Twitter', url: 'https://twitter.quasar.dev', icon: 'twitter' }
-      ]
-    },
-    {
-      label: 'Projects',
-      icon: 'folder',
-      items: [
-        { label: 'GitHub', url: 'https://github.com/quasarframework/quasar', icon: 'code' },
-        { label: 'Awesome Quasar', url: 'https://awesome.quasar.dev' }  // No icon here
-      ]
-    }
-  ]
-  
-  const leftDrawerOpen = ref(false)
-  </script>
-  
+  <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-list>
+      <q-item-label header>
+        Sistema Informativo
+        <!-- Botón para recargar el menú -->
+        <q-btn
+          icon="refresh"
+          color="primary"
+          round
+          dense
+          flat
+          @click="reloadMenu"
+          class="q-ml-md"
+          title="Recargar Menú"
+        />
+      </q-item-label>
+
+      <template v-for="(menu, index) in filteredMenuData" :key="index">
+        <MenuItem :item="menu" />
+      </template>
+    </q-list>
+  </q-drawer>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { useMenuStore } from "stores/menuStore";
+import MenuItem from "components/MenuItem.vue";
+
+const menuStore = useMenuStore();
+const leftDrawerOpen = ref(false);
+
+// Computed para asegurarse de que no haya problemas de datos vacíos
+const filteredMenuData = computed(() => menuStore.menuData || []);
+
+// Cargar los menús al montarse el componente
+onMounted(() => {
+  menuStore.fetchMenus();
+});
+
+// Función para recargar el menú, borrar lo guardado y guardar los nuevos datos
+const reloadMenu = async () => {
+  // Borra los datos previos del localStorage
+  localStorage.removeItem('menuData');
+  localStorage.removeItem('menuDataTimestamp');
+
+  // Llamar a la API para obtener los nuevos menús
+  await menuStore.fetchMenus();
+};
+</script>
