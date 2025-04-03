@@ -7,22 +7,23 @@ const routes = [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'clientes', component: () => import('pages/ClientesPage.vue') },
       { path: 'configuracion', component: () => import('pages/ConfigPage.vue') },
-      { path: 'roles', component: () => import('pages/Config/RolesPage.vue') },
-      { path: 'asistencia', component: () => import('pages/AsistenciaPage.vue') }
-    ]
+      { path: 'configuracion/roles', component: () => import('pages/Config/RolesPage.vue') },
+      { path: 'asistencia', component: () => import('pages/AsistenciaPage.vue') },
+      { path: 'configuracion/menus', component: () => import('pages/menus/MenuPage.vue') },
+    ],
   },
 
   // Ruta para el login (sin layout)
   {
     path: '/login',
-    component: () => import('pages/LoginPage.vue')
+    component: () => import('pages/LoginPage.vue'),
   },
 
   // Ruta para manejar errores 404
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-];
+    component: () => import('pages/ErrorNotFound.vue'),
+  },
+]
 
-export default routes;
+export default routes

@@ -2,16 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
-          Quasar App
+          <q-item clickable tag="router-link" to="/" class="text-white">Sistema Base </q-item>
         </q-toolbar-title>
         <div>Bienvenido! <strong>Carlos Rodas</strong></div>
         <NotificationButton @close-drawer="closeDrawer" />
@@ -32,7 +25,7 @@
 import { ref } from 'vue'
 import CloseDrawerButton from 'components/CloseDrawerButton.vue'
 import NotificationButton from 'components/NotificationButton.vue'
-import MenuDrawer from 'components/MenuDrawer.vue'  // Importar el componente
+import MenuDrawer from 'components/MenuDrawer.vue' // Importar el componente
 
 const leftDrawerOpen = ref(false)
 

@@ -1,0 +1,154 @@
+{
+  "options": [
+    {
+      "label": "Home",
+      "value": "home",
+      "icon": "home"
+    },
+    {
+      "label": "Settings",
+      "value": "settings",
+      "icon": "settings"
+    },
+    {
+      "label": "Search",
+      "value": "search",
+      "icon": "search"
+    },
+    {
+      "label": "Delete",
+      "value": "delete",
+      "icon": "delete"
+    },
+    {
+      "label": "Edit",
+      "value": "edit",
+      "icon": "edit"
+    },
+    {
+      "label": "Favorite",
+      "value": "favorite",
+      "icon": "favorite"
+    },
+    {
+      "label": "Share",
+      "value": "share",
+      "icon": "share"
+    },
+    {
+      "label": "Download",
+      "value": "download",
+      "icon": "download"
+    },
+    {
+      "label": "Upload",
+      "value": "upload",
+      "icon": "upload"
+    },
+    {
+      "label": "Print",
+      "value": "print",
+      "icon": "print"
+    },
+    {
+      "label": "Arrow Back",
+      "value": "arrow_back",
+      "icon": "arrow_back"
+    },
+    {
+      "label": "Arrow Forward",
+      "value": "arrow_forward",
+      "icon": "arrow_forward"
+    },
+    {
+      "label": "Menu",
+      "value": "menu",
+      "icon": "menu"
+    },
+    {
+      "label": "Close",
+      "value": "close",
+      "icon": "close"
+    },
+    {
+      "label": "Expand More",
+      "value": "expand_more",
+      "icon": "expand_more"
+    },
+    {
+      "label": "School",
+      "value": "school",
+      "icon": "school"
+    },
+    {
+      "label": "Email",
+      "value": "email",
+      "icon": "email"
+    },
+    {
+      "label": "Person",
+      "value": "person",
+      "icon": "person"
+    },
+    {
+      "label": "Lock",
+      "value": "lock",
+      "icon": "lock"
+    },
+    {
+      "label": "Visibility",
+      "value": "visibility",
+      "icon": "visibility"
+    },
+    {
+      "label": "Visibility Off",
+      "value": "visibility_off",
+      "icon": "visibility_off"
+    },
+    {
+      "label": "Help",
+      "value": "help",
+      "icon": "help"
+    },
+    {
+      "label": "Info",
+      "value": "info",
+      "icon": "info"
+    },
+    {
+      "label": "Warning",
+      "value": "warning",
+      "icon": "warning"
+    },
+    {
+      "label": "Error",
+      "value": "error",
+      "icon": "error"
+    },
+    {
+      "label": "Check Circle",
+      "value": "check_circle",
+      "icon": "check_circle"
+    },
+    {
+      "label": "Calendar",
+      "value": "calendar_today",
+      "icon": "calendar_today"
+    },
+    {
+      "label": "Access Time",
+      "value": "access_time",
+      "icon": "access_time"
+    },
+    {
+      "label": "Phone",
+      "value": "phone",
+      "icon": "phone"
+    },
+    {
+      "label": "Link",
+      "value": "link",
+      "icon": "link"
+    }
+  ]
+}

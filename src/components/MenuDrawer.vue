@@ -1,5 +1,5 @@
 <template>
-  <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+  <q-drawer v-model="leftDrawerOpen" show-if-above bordered :class="`bg-dark text-white`">
     <q-list>
       <q-item-label header>
         Sistema Informativo
@@ -24,28 +24,28 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import { useMenuStore } from "stores/menuStore";
-import MenuItem from "components/MenuItem.vue";
+import { ref, computed, onMounted } from 'vue'
+import { useMenuStore } from 'stores/menuStore'
+import MenuItem from 'components/MenuItem.vue'
 
-const menuStore = useMenuStore();
-const leftDrawerOpen = ref(false);
+const menuStore = useMenuStore()
+const leftDrawerOpen = ref(false)
 
 // Computed para asegurarse de que no haya problemas de datos vacíos
-const filteredMenuData = computed(() => menuStore.menuData || []);
+const filteredMenuData = computed(() => menuStore.menuData || [])
 
 // Cargar los menús al montarse el componente
 onMounted(() => {
-  menuStore.fetchMenus();
-});
+  menuStore.fetchMenus()
+})
 
 // Función para recargar el menú, borrar lo guardado y guardar los nuevos datos
 const reloadMenu = async () => {
   // Borra los datos previos del localStorage
-  localStorage.removeItem('menuData');
-  localStorage.removeItem('menuDataTimestamp');
+  localStorage.removeItem('menuData')
+  localStorage.removeItem('menuDataTimestamp')
 
   // Llamar a la API para obtener los nuevos menús
-  await menuStore.fetchMenus();
-};
+  await menuStore.fetchMenus()
+}
 </script>
